@@ -1,18 +1,24 @@
 package main
 
-import "fmt"
+import "fmt" // Importamos el paquete "fmt" para funciones de formato (Print, Scan)
 
 func main() {
-	var nombre string // Forma 1: declaramos la variable sin asignarle un valor
-	nombre = "Ana" // Luego le asignamos un valor
-	fmt.Println(nombre)
+	// Declaración de variables
+	var nombre string
+	var precio float64
 
-        nombre = "Juan" // Le reasignamos otro valor, son dinámicas, una vez definidas podemos cambiar su valor
-        fmt.Println(nombre)
+	// --- 3. Usando Scanln para leer la entrada del usuario ---
+	fmt.Print("Por favor, ingresa tu nombre: ") // Print sin salto de línea para que la entrada quede al lado
+	fmt.Scanln(&nombre)                         // Lee la línea completa hasta el Enter y la guarda en 'nombre'
+	                                            // El '&' es importante, indica la dirección de memoria de la variable
 
-	var ciudad string = "Córdoba" // Forma 2: declaramos e inicializamos al mismo tiempo
-	fmt.Println(ciudad)
+	// Pedir y leer un precio decimal
+	fmt.Print("Ingresa un precio (ej. 19.234452): ")
+	fmt.Scanln(&precio)
 
-	edad := 25 // Forma 3: declaración corta, solo dentro de funciones
-	fmt.Println(edad)
+	// Imprimir nombre no usando nada
+	fmt.Println("Nombre:", nombre)
+
+	// Imprimir precio con formato
+	fmt.Printf("Precio: %.2f\n", precio) // ".2f" formatea el float a 2 decimales
 }
