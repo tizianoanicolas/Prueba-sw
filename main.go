@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "prueba/util"
 
 func main() {
-	fmt.Println("Hola Mundo")
+	util.Saludar()
 }
