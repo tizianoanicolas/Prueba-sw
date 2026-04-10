@@ -1,26 +1,58 @@
 package main
 
 import "fmt" 
-import "math" 
+import "math/rand" 
+
+func play() {
+randomNumber := rand.Intn(101) 
+var intentos int
+var win int
+
+fmt.Println("Adivina el número entre 0 y 100")
+fmt.Println("Tienes 10 intentos para adivinar el número.")
+
+for i := 0; i < 10; i++ {
+	fmt.Print("Intento ", i+1, ": ")
+	fmt.Scanln(&intentos)
+
+	if intentos < randomNumber {
+		fmt.Println("El número es mayor.")
+	} else if intentos > randomNumber {
+		fmt.Println("El número es menor.")
+	} else if intentos == randomNumber {
+		fmt.Println("¡Felicidades! Has adivinado el número.")
+		win = 1
+		return
+	}
+}
+if win == 0 {
+	fmt.Println("Lo siento, has agotado tus intentos. El número era: ", randomNumber)
+}
+
+}
+
+func displayMenu() {
+fmt.Println("=== MENU ===")
+fmt.Println("1. Iniciar Juego")
+fmt.Println("2. Salir")
+fmt.Print("Elija una opción: ")
+var choice int
+fmt.Scanln(&choice)
+
+for choice != 2 {
+	switch choice {
+	case 1:
+		play()
+		choice = 2
+	default:
+		fmt.Println("Opción no válida. Por favor, elija una opción válida.")
+	}
+
+}
+}
 
 func main() {
-	
-	var lado1 float64
-	var lado2 float64
+	displayMenu()
 
 	
-	fmt.Print("Por favor, ingresa el primer lado: ") 
-	fmt.Scanln(&lado1)                              
-	
-
-	
-	fmt.Print("Ingresa el segundo lado: ")
-	fmt.Scanln(&lado2)
-
-	var area float64 = (lado1 * lado2) / 2
-	var perimetro float64 = lado1 + lado2 + math.Sqrt(lado1*lado1+lado2*lado2)
-
-	
-	fmt.Printf("El área del triángulo es: %.2f\n", area)
-	fmt.Printf("El perímetro del triángulo es: %.2f\n", perimetro)
 }
