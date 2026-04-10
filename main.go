@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// La estructura DEBE ir después del import o dentro de main
+
 type Tarea struct {
 	Titulo      string
 	Descripcion string
